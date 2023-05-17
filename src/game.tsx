@@ -105,22 +105,17 @@ const determineGameResult = (state: GameState): GameResult => {
     (isPlayerBlackjack && !isDealerBlackjack) ||
     (playerScore <= 21 && dealerScore > 21)
   ) {
-    // Player has blackjack and dealer doesn't, or dealer busts and player doesn't
     return "player_win";
   } else if (
     (isDealerBlackjack && !isPlayerBlackjack) ||
     (dealerScore <= 21 && playerScore > 21)
   ) {
-    // Dealer has blackjack and player doesn't, or player busts and dealer doesn't
     return "dealer_win";
   } else if (playerScore > dealerScore) {
-    // Player has higher score than the dealer
     return "player_win";
   } else if (dealerScore > playerScore) {
-    // Dealer has higher score than the player
     return "dealer_win";
   } else {
-    // Scores are equal, it's a draw
     return "draw";
   }
 };
